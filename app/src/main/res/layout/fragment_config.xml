@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_1"
+    tools:context=".ui.config.ConfigFragment">
+
+
+    <Button
+        android:id="@+id/btnSaveConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Сохранить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icLanguage" />
+
+    <TextView
+        android:id="@+id/tvHeaderConfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Настройка параметров:"
+        android:textColor="#FFC107"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/viewLineHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        android:id="@+id/viewLineHeader"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:background="#FFC107"
+        app:layout_constraintBottom_toTopOf="@+id/icTempConfig"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderConfig" />
+
+    <ImageView
+        android:id="@+id/icTempConfig"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_temp"
+        app:layout_constraintBottom_toTopOf="@+id/icTimeConfig"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewLineHeader" />
+
+    <TextView
+        android:id="@+id/tvNameTemp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Температура"
+        android:textColor="#F2F2F2"
+        app:layout_constraintBottom_toBottomOf="@+id/icTempConfig"
+        app:layout_constraintStart_toEndOf="@+id/icTempConfig"
+        app:layout_constraintTop_toTopOf="@+id/icTempConfig" />
+
+    <ImageView
+        android:id="@+id/icTimeConfig"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_time"
+        app:layout_constraintBottom_toTopOf="@+id/icPrecipitation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icTempConfig" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Формат времени"
+        android:textColor="#F2F2F2"
+        app:layout_constraintBottom_toBottomOf="@+id/icTimeConfig"
+        app:layout_constraintStart_toEndOf="@+id/icTimeConfig"
+        app:layout_constraintTop_toTopOf="@+id/icTimeConfig" />
+
+    <ImageView
+        android:id="@+id/icPrecipitation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_precipitation"
+        app:layout_constraintBottom_toTopOf="@+id/icWind"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icTimeConfig" />
+
+    <TextView
+        android:id="@+id/tvPrecipitation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Осадки"
+        android:textColor="#F2F2F2"
+        app:layout_constraintBottom_toBottomOf="@+id/icPrecipitation"
+        app:layout_constraintStart_toEndOf="@+id/icPrecipitation"
+        app:layout_constraintTop_toTopOf="@+id/icPrecipitation" />
+    <!--    -->
+    <ImageView
+        android:id="@+id/icWind"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_wind"
+        app:layout_constraintBottom_toTopOf="@+id/icPressure"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icPrecipitation" />
+
+    <TextView
+        android:id="@+id/tvWind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Скорость ветра"
+        android:textColor="#F2F2F2"
+        app:layout_constraintBottom_toBottomOf="@+id/icWind"
+        app:layout_constraintStart_toEndOf="@+id/icWind"
+        app:layout_constraintTop_toTopOf="@+id/icWind" />
+
+    <ImageView
+        android:id="@+id/icPressure"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_pressure"
+        app:layout_constraintBottom_toTopOf="@+id/icLanguage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icWind" />
+
+    <TextView
+        android:id="@+id/tvPressure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Давление"
+        android:textColor="#F2F2F2"
+        app:layout_constraintBottom_toBottomOf="@+id/icPressure"
+        app:layout_constraintStart_toEndOf="@+id/icPressure"
+        app:layout_constraintTop_toTopOf="@+id/icPressure" />
+
+    <ImageView
+        android:id="@+id/icLanguage"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_lang"
+        app:layout_constraintBottom_toTopOf="@+id/btnSaveConfig"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/icPressure" />
+
+    <TextView
+        android:id="@+id/tvLanguage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Язык приложения"
+        android:textColor="#F2F2F2"
+        app:layout_constraintBottom_toBottomOf="@+id/icLanguage"
+        app:layout_constraintStart_toEndOf="@+id/icLanguage"
+        app:layout_constraintTop_toTopOf="@+id/icLanguage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
