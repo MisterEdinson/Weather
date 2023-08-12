@@ -57,6 +57,13 @@ dependencies {
     //Dagger 2 Hilt
     implementation "com.google.dagger:hilt-android:2.44"
     kapt "com.google.dagger:hilt-compiler:2.44"
+    //Retrofit
+    def retrofitVersion = "2.9.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
+    //Okhttp
+    def okhttpVersion = "4.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttpVersion"
     //MPAndroidChart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
