@@ -40,4 +40,14 @@
         app:layout_constraintStart_toEndOf="@+id/imgBtnBar"
         app:layout_constraintTop_toTopOf="@+id/imgBtnBar" />
 
+    <include
+        layout="@layout/home_circle_screen"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderLoacation" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
