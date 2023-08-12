@@ -8,8 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.weather.R
 import com.example.weather.databinding.FragmentConfigBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.NonDisposableHandle.parent
-
+@AndroidEntryPoint
 class ConfigFragment : Fragment() {
 
     private lateinit var binding: FragmentConfigBinding
