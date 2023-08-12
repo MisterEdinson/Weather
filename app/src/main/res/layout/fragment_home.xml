@@ -39,4 +39,5 @@
         app:layout_constraintEnd_toStartOf="@+id/imgBtnLocation"
         app:layout_constraintStart_toEndOf="@+id/imgBtnBar"
         app:layout_constraintTop_toTopOf="@+id/imgBtnBar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
