@@ -50,7 +50,7 @@ data class Evening(
 	val pressureMm: Int? = null,
 
 	@field:SerializedName("cloudness")
-	val cloudness: Int? = null,
+	val cloudness: Float? = null,
 
 	@field:SerializedName("prec_period")
 	val precPeriod: Int? = null,
