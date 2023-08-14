@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Сохранить"
+        android:text="@string/save_config"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Настройка параметров:"
+        android:text="@string/title_config"
         android:textColor="#FFC107"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -44,7 +44,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:background="#FFC107"
+        android:background="@color/yellow"
         app:layout_constraintBottom_toTopOf="@+id/icTempConfig"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -60,14 +60,15 @@
         android:src="@drawable/ic_temp"
         app:layout_constraintBottom_toTopOf="@+id/icTimeConfig"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewLineHeader" />
+        app:layout_constraintTop_toBottomOf="@+id/viewLineHeader"
+        android:contentDescription="@string/icon_tempetature" />
 
     <TextView
         android:id="@+id/tvNameTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Температура"
+        android:text="@string/conf_temp"
         android:textColor="#F2F2F2"
         app:layout_constraintBottom_toBottomOf="@+id/icTempConfig"
         app:layout_constraintStart_toEndOf="@+id/icTempConfig"
@@ -82,14 +83,15 @@
         android:src="@drawable/ic_time"
         app:layout_constraintBottom_toTopOf="@+id/icPrecipitation"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icTempConfig" />
+        app:layout_constraintTop_toBottomOf="@+id/icTempConfig"
+        android:contentDescription="@string/icon_format_time" />
 
     <TextView
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Формат времени"
+        android:text="@string/conf_time"
         android:textColor="#F2F2F2"
         app:layout_constraintBottom_toBottomOf="@+id/icTimeConfig"
         app:layout_constraintStart_toEndOf="@+id/icTimeConfig"
@@ -104,14 +106,15 @@
         android:src="@drawable/ic_precipitation"
         app:layout_constraintBottom_toTopOf="@+id/icWind"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icTimeConfig" />
+        app:layout_constraintTop_toBottomOf="@+id/icTimeConfig"
+        android:contentDescription="@string/icon_precipitation" />
 
     <TextView
         android:id="@+id/tvPrecipitation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Осадки"
+        android:text="@string/conf_precipitation"
         android:textColor="#F2F2F2"
         app:layout_constraintBottom_toBottomOf="@+id/icPrecipitation"
         app:layout_constraintStart_toEndOf="@+id/icPrecipitation"
@@ -126,14 +129,15 @@
         android:src="@drawable/ic_wind"
         app:layout_constraintBottom_toTopOf="@+id/icPressure"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icPrecipitation" />
+        app:layout_constraintTop_toBottomOf="@+id/icPrecipitation"
+        android:contentDescription="@string/icon_speed_wind" />
 
     <TextView
         android:id="@+id/tvWind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Скорость ветра"
+        android:text="@string/conf_wind_speed"
         android:textColor="#F2F2F2"
         app:layout_constraintBottom_toBottomOf="@+id/icWind"
         app:layout_constraintStart_toEndOf="@+id/icWind"
@@ -148,14 +152,15 @@
         android:src="@drawable/ic_pressure"
         app:layout_constraintBottom_toTopOf="@+id/icLanguage"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icWind" />
+        app:layout_constraintTop_toBottomOf="@+id/icWind"
+        android:contentDescription="@string/icon_pressure" />
 
     <TextView
         android:id="@+id/tvPressure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Давление"
+        android:text="@string/conf_pressure"
         android:textColor="#F2F2F2"
         app:layout_constraintBottom_toBottomOf="@+id/icPressure"
         app:layout_constraintStart_toEndOf="@+id/icPressure"
@@ -170,17 +175,93 @@
         android:src="@drawable/ic_lang"
         app:layout_constraintBottom_toTopOf="@+id/btnSaveConfig"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/icPressure" />
+        app:layout_constraintTop_toBottomOf="@+id/icPressure"
+        android:contentDescription="@string/icon_language" />
 
     <TextView
         android:id="@+id/tvLanguage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Язык приложения"
+        android:text="@string/conf_language"
         android:textColor="#F2F2F2"
         app:layout_constraintBottom_toBottomOf="@+id/icLanguage"
         app:layout_constraintStart_toEndOf="@+id/icLanguage"
         app:layout_constraintTop_toTopOf="@+id/icLanguage" />
+
+    <Spinner
+        android:id="@+id/spConfigTemp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="32dp"
+        android:spinnerMode="dialog"
+        android:backgroundTint="@color/yellow"
+        style="@style/SpinnerStyle"
+        android:spinnerStyle="@style/SpinnerStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNameTemp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNameTemp" />
+
+    <Spinner
+        android:id="@+id/spConfigTime"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:spinnerMode="dialog"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/yellow"
+        style="@style/SpinnerStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvTime" />
+
+    <Spinner
+        android:id="@+id/spConfigPrecipitation"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:spinnerMode="dialog"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/yellow"
+        style="@style/SpinnerStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPrecipitation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvPrecipitation" />
+
+    <Spinner
+        android:id="@+id/spConfigWind"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:spinnerMode="dialog"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/yellow"
+        style="@style/SpinnerStyle"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWind"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvWind" />
+
+    <Spinner
+        android:id="@+id/spConfigPressure"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:spinnerMode="dialog"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/yellow"
+        style="@style/SpinnerStyle"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPressure"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvPressure" />
+
+    <Spinner
+        android:id="@+id/spConfigLanguage"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:spinnerMode="dialog"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/yellow"
+        style="@style/SpinnerStyle"
+        android:gravity="end"
+        app:layout_constraintBottom_toBottomOf="@+id/tvLanguage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvLanguage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
