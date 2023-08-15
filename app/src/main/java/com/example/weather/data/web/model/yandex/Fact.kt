@@ -53,7 +53,7 @@ data class Fact(
 	val pressureMm: Int? = null,
 
 	@field:SerializedName("cloudness")
-	val cloudness: Int? = null,
+	val cloudness: Float? = null,
 
 	@field:SerializedName("wind_dir")
 	val windDir: String? = null,
@@ -68,7 +68,7 @@ data class Fact(
 	val condition: String? = null,
 
 	@field:SerializedName("prec_strength")
-	val precStrength: Int? = null,
+	val precStrength: Float? = null,
 
 	@field:SerializedName("soil_moisture")
 	val soilMoisture: Any? = null,

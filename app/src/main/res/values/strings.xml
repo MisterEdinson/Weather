@@ -24,4 +24,41 @@
     <string name="icon_format_time">icon format time</string>
     <string name="icon_tempetature">icon tempetature</string>
 
+    <string-array name="config_temp_array">
+        <item>C</item>
+        <item>K</item>
+        <item>F</item>
+    </string-array>
+
+    <string-array name="config_time_array">
+        <item>24h</item>
+        <item>12h</item>
+    </string-array>
+
+    <string-array name="config_precipitation_array">
+        <item>mm</item>
+        <item>in</item>
+    </string-array>
+
+    <string-array name="config_wind_array">
+        <item>km/h</item>
+        <item>m/s</item>
+        <item>mi/h</item>
+    </string-array>
+
+    <string-array name="config_pres_array">
+        <item>мм.рт.ст</item>
+        <item>гПа</item>
+        <item>мБар</item>
+    </string-array>
+
+    <string-array name="config_lang_array">
+        <item>ru_Ru</item>
+        <item>uk_UA</item>
+        <item>be_BY</item>
+        <item>kk_KZ</item>
+        <item>tr_TR</item>
+        <item>en_US</item>
+    </string-array>
+
 </resources>

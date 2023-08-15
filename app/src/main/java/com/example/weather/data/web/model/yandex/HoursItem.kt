@@ -20,7 +20,7 @@ data class HoursItem(
 	val cloudness: Float? = null,
 
 	@field:SerializedName("prec_period")
-	val precPeriod: Int? = null,
+	val precPeriod: Float? = null,
 
 	@field:SerializedName("wind_dir")
 	val windDir: String? = null,
@@ -53,7 +53,7 @@ data class HoursItem(
 	val humidity: Int? = null,
 
 	@field:SerializedName("prec_strength")
-	val precStrength: Int? = null,
+	val precStrength: Float? = null,
 
 	@field:SerializedName("wind_speed")
 	val windSpeed: Any? = null,
