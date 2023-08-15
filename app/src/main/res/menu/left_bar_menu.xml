@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuBtnLocation"
+        android:icon="@drawable/ic_location"
+        android:title="Местоположение" />
+
+    <item
+        android:id="@+id/menuBtnConfig"
+        android:icon="@drawable/ic_settings"
+        android:title="Настройка" />
+
+    <item
+        android:id="@+id/menuBtnShare"
+        android:icon="@drawable/ic_share"
+        android:title="Поделиться" />
+
+    <item
+        android:id="@+id/menuBtnNotification"
+        android:checkable="true"
+        android:icon="@drawable/ic_notifications"
+        android:title="Уведомления" />
+
+    <item
+        android:id="@+id/menuBtnMail"
+        android:icon="@drawable/ic_email"
+        android:title="Обратная связь" />
+
+    <item
+        android:id="@+id/menuBtnUser"
+        android:icon="@drawable/ic_sign"
+        android:title="Регистрация" />
+
+    <item
+        android:id="@+id/menuBtnInfo"
+        android:icon="@drawable/ic_info"
+        android:title="О приложении" />
+</menu>
