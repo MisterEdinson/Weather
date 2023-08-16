@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.weather.MainActivity
 import com.example.weather.R
 import com.example.weather.databinding.FragmentConfigBinding
 import com.example.weather.domain.utils.ConfigConstants
@@ -33,7 +35,6 @@ class ConfigFragment : Fragment() {
         binding = FragmentConfigBinding.inflate(LayoutInflater.from(context), container, false)
 
         localConfig = LocalConfigSave(this.context)
-
         return binding.root
     }
 
@@ -54,12 +55,8 @@ class ConfigFragment : Fragment() {
             selected(spinner)
         }
 
-        if (localConfig?.defaultConfig() == true) {
-            findNavController().navigate(R.id.action_configFragment_to_homeFragment)
-        }
-
         binding.btnSaveConfig.setOnClickListener {
-            findNavController().navigate(R.id.action_configFragment_to_homeFragment)
+            findNavController().navigate(R.id.nav_home)
         }
     }
 

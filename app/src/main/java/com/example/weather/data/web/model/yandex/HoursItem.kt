@@ -65,8 +65,8 @@ data class HoursItem(
 	val soilTemp: Int? = null,
 
 	@field:SerializedName("prec_mm")
-	val precMm: Int? = null,
+	val precMm: Float? = null,
 
 	@field:SerializedName("prec_prob")
-	val precProb: Int? = null
+	val precProb: Float? = null
 )
