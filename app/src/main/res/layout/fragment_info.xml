@@ -8,16 +8,29 @@
     android:background="@drawable/bg_5"
     tools:context=".ui.infoApp.InfoFragment">
 
-    <TextView
-        android:id="@+id/tvInfoPageHeader"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:textSize="16sp"
         android:background="#41000000"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:text="Weather"/>
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/tvInfoPageHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="18sp"
+
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:text="Weather"/>
+        <ImageView
+            android:id="@+id/imgCloseInfo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_close"/>
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/tvInfiPageDesc"
