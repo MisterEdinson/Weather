@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_5"
     tools:context=".ui.infoApp.InfoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/tvInfoPageHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:textSize="16sp"
+        android:background="#41000000"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:text="Weather"/>
+
+    <TextView
+        android:id="@+id/tvInfiPageDesc"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="#40000000"
+        android:textStyle="italic"
+        android:text="@string/text_desc_info"/>
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:padding="16dp"
+        android:background="#25000000"
+        android:textStyle="italic"
+        android:textColor="@color/white"
+        android:text="@string/text_share_info"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
 
-</FrameLayout>
+        android:textStyle="italic"
+        android:background="#19000000"
+        android:textColor="@color/white"
+        android:text="@string/text_mail_info"/>
+</androidx.appcompat.widget.LinearLayoutCompat>
