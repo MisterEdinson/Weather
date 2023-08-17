@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.weather.R
 import com.example.weather.databinding.FragmentHomeBinding
+import com.example.weather.ui.home.converters.Condition
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,6 +45,7 @@ class HomeFragment : Fragment() {
             binding.mainBanner.tvSpeedWind.text = getString(R.string.speed_show, it.fact?.windSpeed)
             binding.mainBanner.tvHumidity.text =
                 getString(R.string.humidity_show, it.fact?.humidity)
+            binding.mainBanner.tvActyalWeather.text = Condition().converted(it.fact?.condition)
         }
 
         binding.imgBtnBar.setOnClickListener {
