@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_drawer"
+    app:startDestination="@id/nav_config">
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.weather.ui.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+    </fragment>
+    <fragment
+        android:id="@+id/nav_config"
+        android:name="com.example.weather.ui.config.ConfigFragment"
+        android:label="fragment_config"
+        tools:layout="@layout/fragment_config" >
+    </fragment>
+    <fragment
+        android:id="@+id/nav_location"
+        android:name="com.example.weather.ui.location.LocationFragment"
+        android:label="fragment_location"
+        tools:layout="@layout/fragment_location" >
+    </fragment>
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.example.weather.ui.infoApp.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+    </fragment>
+    <fragment
+        android:id="@+id/nav_mail"
+        android:name="com.example.weather.ui.sendEmail.EmailSendFragment"
+        android:label="fragment_email_send"
+        tools:layout="@layout/fragment_email_send" />
+    <fragment
+        android:id="@+id/nav_notification"
+        android:name="com.example.weather.ui.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/nav_user"
+        android:name="com.example.weather.ui.registration.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration" />
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.example.weather.ui.shared.SharedFragment"
+        android:label="fragment_shared"
+        tools:layout="@layout/fragment_shared" />
+</navigation>
