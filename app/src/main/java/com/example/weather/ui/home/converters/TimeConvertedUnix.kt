@@ -12,7 +12,7 @@ class TimeConvertedUnix {
         return dateFormat.format(date)
     }
 
-    fun time(unixTime: Int?): String{
+    fun time(unixTime: Int): String{
         val dateFormat = SimpleDateFormat("HH:mm")
         dateFormat.timeZone = TimeZone.getTimeZone("UTC")
         val date = Date((unixTime?.toLong() ?: 1) * 1000)

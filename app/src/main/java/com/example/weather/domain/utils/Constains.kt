@@ -4,6 +4,7 @@ class Constains {
     companion object {
         const val URL_YANDEX = "https://api.weather.yandex.ru/v2/"
         const val TOKEN_YANDEX = "d945af63-61f9-4fac-891d-2279e97765d1"
+        const val YANDEX_ICON = "https://yastatic.net/weather/i/icons/funky/dark/bkn_d.svg"
 
         const val GEO_LAT = "50.2757" //широта
         const val GEO_LON = "57.2072"  //долгота

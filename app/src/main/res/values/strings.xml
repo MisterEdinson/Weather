@@ -2,6 +2,7 @@
     <string name="app_name">Weather</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="img_download_hour">https://yastatic.net/weather/i/icons/funky/dark/%s.svg</string>
 
     <string name="location_show">%s / %s</string>
     <string name="temp_naught_day">%d\u00B0 / %d\u00B0</string>
@@ -74,4 +75,6 @@
         <item>en_US</item>
     </string-array>
 
+    <string name="hour_temp">%d\u00B0</string>
+    <string name="hour_pres">%d мм</string>
 </resources>
