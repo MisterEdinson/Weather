@@ -23,7 +23,7 @@
         android:layout_height="30dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/ic_bar"/>
+        android:src="@drawable/ic_bar_black"/>
 
     <ImageView
         android:id="@+id/imgBtnCloseLocFrag"
@@ -32,6 +32,6 @@
         android:layout_gravity="end"
         android:layout_marginEnd="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/ic_close"/>
+        android:src="@drawable/ic_close_black"/>
 
 </FrameLayout>

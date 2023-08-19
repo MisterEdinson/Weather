@@ -2,15 +2,12 @@ package com.example.weather.ui.location
 
 import android.os.Bundle
 import android.preference.PreferenceManager
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.example.weather.R
-import com.example.weather.databinding.ActivityMainBinding
+import androidx.fragment.app.Fragment
 import com.example.weather.databinding.FragmentLocationBinding
-import dagger.hilt.android.qualifiers.ApplicationContext
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
