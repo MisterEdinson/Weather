@@ -27,12 +27,14 @@ class LocationFragment : Fragment() {
     private lateinit var mapView: MapView
     private lateinit var marker: Marker
     private var localConfig: LocalConfigSave? = null
+    private var initialPosition: GeoPoint? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentLocationBinding.inflate(LayoutInflater.from(this.context), container, false)
+        binding =
+            FragmentLocationBinding.inflate(LayoutInflater.from(this.context), container, false)
         localConfig = LocalConfigSave(this.context)
         return binding.root
     }
@@ -40,27 +42,15 @@ class LocationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mapView = binding.map
-        Configuration.getInstance().load(this.context, PreferenceManager.getDefaultSharedPreferences(this.context))
-        mapView.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE)
-        mapView.controller.setZoom(10.0)
-        mapView.controller.setCenter(GeoPoint(Constains.GEO_LAT.toDouble(), Constains.GEO_LON.toDouble()))
-
-        var initialPosition = GeoPoint(Constains.GEO_LAT.toDouble(), Constains.GEO_LON.toDouble())
-        marker = Marker(mapView)
-        marker.position = initialPosition
-        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
-        mapView.overlays.add(marker)
-        marker.isDraggable = true
+        centerScreen()
+        markerScreen()
 
         marker.setOnMarkerDragListener(object : Marker.OnMarkerDragListener {
             override fun onMarkerDrag(marker: Marker) {}
             override fun onMarkerDragEnd(marker: Marker) {
-                initialPosition = GeoPoint(marker.position.altitude, marker.position.longitude)
-                localConfig?.saveConf("altitude", marker.position.altitude.toString())
-                localConfig?.saveConf("longitude", marker.position.longitude.toString())
-                Toast.makeText(context, "Saved location", Toast.LENGTH_SHORT).show()
+                saveGeo()
             }
+
             override fun onMarkerDragStart(marker: Marker) {}
         })
 
@@ -71,5 +61,48 @@ class LocationFragment : Fragment() {
         binding.imgBtnCloseLocFrag.setOnClickListener {
             findNavController().navigate(R.id.nav_home)
         }
+    }
+
+    private fun centerScreen() {
+        val latitude: Double
+        val longitude: Double
+
+        val sharedGeo = localConfig?.readGeo("lat", "long")
+
+        if (sharedGeo?.get(0) != -1.0 && sharedGeo?.get(1) != -1.0) {
+            latitude = sharedGeo!![0]
+            longitude = sharedGeo[1]
+        } else {
+            latitude = Constains.GEO_LAT.toDouble()
+            longitude = Constains.GEO_LON.toDouble()
+        }
+
+        mapView = binding.map
+        Configuration.getInstance()
+            .load(this.context, PreferenceManager.getDefaultSharedPreferences(this.context))
+        mapView.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE)
+        mapView.controller.setZoom(10.0)
+
+        mapView.controller.setCenter(
+            GeoPoint(
+                latitude,
+                longitude
+            )
+        )
+        initialPosition = GeoPoint(latitude, longitude)
+    }
+
+    private fun markerScreen() {
+        marker = Marker(mapView)
+        marker.position = initialPosition
+        marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
+        mapView.overlays.add(marker)
+        marker.isDraggable = true
+    }
+
+    private fun saveGeo() {
+        localConfig?.saveGeo("lat", marker.position.latitude)
+        localConfig?.saveGeo("long", marker.position.longitude)
+        Toast.makeText(context, "Saved location", Toast.LENGTH_SHORT).show()
     }
 }
