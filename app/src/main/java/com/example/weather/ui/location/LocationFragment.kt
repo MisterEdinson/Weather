@@ -7,7 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.example.weather.R
 import com.example.weather.databinding.FragmentLocationBinding
+import com.example.weather.ui.home.HomeViewModel
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
@@ -16,6 +20,7 @@ import org.osmdroid.views.overlay.Marker
 
 class LocationFragment : Fragment() {
 
+    private val viewModel: HomeViewModel by activityViewModels()
     private lateinit var binding: FragmentLocationBinding
     private lateinit var mapView: MapView
     private lateinit var marker: Marker
@@ -52,5 +57,13 @@ class LocationFragment : Fragment() {
             }
             override fun onMarkerDragStart(marker: Marker) {}
         })
+
+        binding.imgBtnBarLocFrag.setOnClickListener {
+            viewModel.drawerLayoutState.value = true
+        }
+
+        binding.imgBtnCloseLocFrag.setOnClickListener {
+            findNavController().navigate(R.id.nav_home)
+        }
     }
 }
