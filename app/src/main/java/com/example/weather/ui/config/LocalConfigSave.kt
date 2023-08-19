@@ -14,4 +14,15 @@ class LocalConfigSave @Inject constructor(context: Context?) {
     fun defaultConfig(): Boolean {
         return saveShare.read("def") != null
     }
+
+    fun readGeo(latitude: String, longitude:String) : Array<Double>{
+        val mass: Array<Double> = arrayOf()
+        val lat = saveShare.read(latitude)
+        val lon = saveShare.read(longitude)
+        if(lat != null && lon != null){
+            mass[0] = lat.toDouble()
+            mass[1] = lon.toDouble()
+        }
+        return mass
+    }
 }

@@ -11,6 +11,8 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weather.R
 import com.example.weather.databinding.FragmentLocationBinding
+import com.example.weather.domain.utils.Constains
+import com.example.weather.ui.config.LocalConfigSave
 import com.example.weather.ui.home.HomeViewModel
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
@@ -24,25 +26,27 @@ class LocationFragment : Fragment() {
     private lateinit var binding: FragmentLocationBinding
     private lateinit var mapView: MapView
     private lateinit var marker: Marker
+    private var localConfig: LocalConfigSave? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLocationBinding.inflate(LayoutInflater.from(this.context), container, false)
+        localConfig = LocalConfigSave(this.context)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val mapView: MapView = binding.map
+        mapView = binding.map
         Configuration.getInstance().load(this.context, PreferenceManager.getDefaultSharedPreferences(this.context))
         mapView.setTileSource(TileSourceFactory.DEFAULT_TILE_SOURCE)
-        mapView.controller.setCenter(GeoPoint(50.2757, 57.2072))
         mapView.controller.setZoom(10.0)
+        mapView.controller.setCenter(GeoPoint(Constains.GEO_LAT.toDouble(), Constains.GEO_LON.toDouble()))
 
-        var initialPosition = GeoPoint(50.2757, 57.2072)
+        var initialPosition = GeoPoint(Constains.GEO_LAT.toDouble(), Constains.GEO_LON.toDouble())
         marker = Marker(mapView)
         marker.position = initialPosition
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
@@ -53,7 +57,9 @@ class LocationFragment : Fragment() {
             override fun onMarkerDrag(marker: Marker) {}
             override fun onMarkerDragEnd(marker: Marker) {
                 initialPosition = GeoPoint(marker.position.altitude, marker.position.longitude)
-                Toast.makeText(context, marker.position.longitude.toString(), Toast.LENGTH_SHORT).show()
+                localConfig?.saveConf("altitude", marker.position.altitude.toString())
+                localConfig?.saveConf("longitude", marker.position.longitude.toString())
+                Toast.makeText(context, "Saved location", Toast.LENGTH_SHORT).show()
             }
             override fun onMarkerDragStart(marker: Marker) {}
         })
