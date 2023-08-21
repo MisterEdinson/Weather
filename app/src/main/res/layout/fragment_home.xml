@@ -1,15 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_7"
     tools:context=".ui.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/imgBtnBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgBtnLocation"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_location"
+        app:layout_constraintBottom_toBottomOf="@+id/tvHeaderLoacation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvHeaderLoacation" />
+
     <TextView
+        android:id="@+id/tvHeaderLoacation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aktobe, Kazakhstan"
+        android:textColor="#f2f2f2"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBtnBar"
+        app:layout_constraintEnd_toStartOf="@+id/imgBtnLocation"
+        app:layout_constraintStart_toEndOf="@+id/imgBtnBar"
+        app:layout_constraintTop_toTopOf="@+id/imgBtnBar" />
+
+    <include
+        android:id="@+id/mainBanner"
+        layout="@layout/home_circle_screen"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHeaderLoacation" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvHours"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainBanner"
+        tools:listitem="@layout/item_hour_forecasts" />
+
+    <ImageView
+        android:id="@+id/imgLabelDetails"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/sunny"
+        android:background="#72000000"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSunSetDetailsLabel"
+        app:layout_constraintEnd_toStartOf="@+id/tvHumidityDetailsLabel"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvHumidityDetailsLabel" />
+
+    <TextView
+        android:id="@+id/tvHumidityDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Влажность:"
+        android:paddingStart="8dp"
+        style="@style/text_details"
+        app:layout_constraintEnd_toStartOf="@+id/tvHumidityDetailsVal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toTopOf="@+id/tvHumidityDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvHumidityDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="24%"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/tvHumidityDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/rvHours" />
+
+    <TextView
+        android:id="@+id/tvUltravioletDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:paddingStart="8dp"
+        android:text="Инд.Ультраф:"
+        style="@style/text_details"
+        app:layout_constraintEnd_toStartOf="@+id/tvUltravioletDetailsVal"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvHumidityDetailsLabel" />
+
+    <TextView
+        android:id="@+id/tvUltravioletDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0.3"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvUltravioletDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvHumidityDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvTempDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Температура:"
+        android:paddingStart="8dp"
+        style="@style/text_details"
+        app:layout_constraintEnd_toStartOf="@+id/tvTempDetailsVal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvUltravioletDetailsLabel" />
+
+    <TextView
+        android:id="@+id/tvTempDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0 mm"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvTempDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvUltravioletDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvTempFactDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Ощущается как:"
+        style="@style/text_details"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvTempFactDetailsVal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempDetailsLabel" />
+
+    <TextView
+        android:id="@+id/tvTempFactDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="20%"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvTempFactDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvPressureDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        style="@style/text_details"
+        android:text="Давление:"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvPressureDetailsVal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempFactDetailsLabel" />
+
+    <TextView
+        android:id="@+id/tvPressureDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="759.82 Па"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvPressureDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempFactDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvCloudDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="0%"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvCloudDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvPressureDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvWindSpeedDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="20 m/s"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvWindSpeedDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvCloudDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvCloudDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Облачность:"
+        style="@style/text_details"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvCloudDetailsVal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvPressureDetailsLabel" />
+
+    <TextView
+        android:id="@+id/tvWindSpeedDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Скорость ветра:"
+        style="@style/text_details"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvWindSpeedDetailsVal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvCloudDetailsLabel" />
+
+    <TextView
+        android:id="@+id/tvSunRiseDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="06:22"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvSunRiseDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvWindSpeedDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvSunSetDetailsVal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="20:22"
+        style="@style/text_details"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvSunSetDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvSunRiseDetailsVal" />
+
+    <TextView
+        android:id="@+id/tvSunRiseDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Восход:"
+        android:paddingStart="8dp"
+        style="@style/text_details"
+        app:layout_constraintEnd_toStartOf="@+id/tvSunRiseDetailsVal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvWindSpeedDetailsLabel" />
+
+    <TextView
+        android:id="@+id/tvSunSetDetailsLabel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Закат:"
+        android:paddingStart="8dp"
+        style="@style/text_details"
+        app:layout_constraintEnd_toStartOf="@+id/tvSunSetDetailsVal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvSunRiseDetailsLabel" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
