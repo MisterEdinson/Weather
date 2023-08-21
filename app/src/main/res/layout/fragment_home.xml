@@ -65,11 +65,12 @@
         tools:listitem="@layout/item_hour_forecasts" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgLabelDetails"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:src="@drawable/sunny"
+        android:background="#72000000"
         app:layout_constraintBottom_toBottomOf="@+id/tvSunSetDetailsLabel"
         app:layout_constraintEnd_toStartOf="@+id/tvHumidityDetailsLabel"
         app:layout_constraintHorizontal_bias="0.5"
@@ -81,12 +82,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Влажность"
+        android:text="Влажность:"
+        android:paddingStart="8dp"
         style="@style/text_details"
         app:layout_constraintEnd_toStartOf="@+id/tvHumidityDetailsVal"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
         app:layout_constraintTop_toTopOf="@+id/tvHumidityDetailsVal" />
 
     <TextView
@@ -108,11 +110,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Индекс ультрафиолета"
+        android:paddingStart="8dp"
+        android:text="Инд.Ультраф:"
         style="@style/text_details"
         app:layout_constraintEnd_toStartOf="@+id/tvUltravioletDetailsVal"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
         app:layout_constraintTop_toBottomOf="@+id/tvHumidityDetailsLabel" />
 
     <TextView
@@ -123,24 +125,24 @@
         android:text="0.3"
         style="@style/text_details"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvUltravioletDetailsLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvHumidityDetailsVal" />
 
     <TextView
-        android:id="@+id/tvPrecipitationDetailsLabel"
+        android:id="@+id/tvTempDetailsLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Осадки"
+        android:text="Температура:"
+        android:paddingStart="8dp"
         style="@style/text_details"
-        app:layout_constraintEnd_toStartOf="@+id/tvPrecipitationDetailsVal"
+        app:layout_constraintEnd_toStartOf="@+id/tvTempDetailsVal"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
         app:layout_constraintTop_toBottomOf="@+id/tvUltravioletDetailsLabel" />
 
     <TextView
-        android:id="@+id/tvPrecipitationDetailsVal"
+        android:id="@+id/tvTempDetailsVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -148,23 +150,24 @@
         style="@style/text_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvPrecipitationDetailsLabel"
+        app:layout_constraintStart_toEndOf="@+id/tvTempDetailsLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvUltravioletDetailsVal" />
 
     <TextView
-        android:id="@+id/tvRainDetailsLabel"
+        android:id="@+id/tvTempFactDetailsLabel"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Вероятность дождя"
+        android:text="Ощущается как:"
         style="@style/text_details"
-        app:layout_constraintEnd_toStartOf="@+id/tvRainDetailsVal"
+        android:paddingStart="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvTempFactDetailsVal"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrecipitationDetailsLabel" />
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempDetailsLabel" />
 
     <TextView
-        android:id="@+id/tvRainDetailsVal"
+        android:id="@+id/tvTempFactDetailsVal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -172,8 +175,8 @@
         style="@style/text_details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/tvRainDetailsLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrecipitationDetailsVal" />
+        app:layout_constraintStart_toEndOf="@+id/tvTempFactDetailsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempDetailsVal" />
 
     <TextView
         android:id="@+id/tvPressureDetailsLabel"
@@ -181,11 +184,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         style="@style/text_details"
-        android:text="Давление"
+        android:text="Давление:"
+        android:paddingStart="8dp"
         app:layout_constraintEnd_toStartOf="@+id/tvPressureDetailsVal"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/tvRainDetailsLabel" />
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvTempFactDetailsLabel" />
 
     <TextView
         android:id="@+id/tvPressureDetailsVal"
@@ -197,7 +201,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/tvPressureDetailsLabel"
-        app:layout_constraintTop_toBottomOf="@+id/tvRainDetailsVal" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTempFactDetailsVal" />
 
     <TextView
         android:id="@+id/tvCloudDetailsVal"
@@ -228,11 +232,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Облачность"
+        android:text="Облачность:"
         style="@style/text_details"
+        android:paddingStart="8dp"
         app:layout_constraintEnd_toStartOf="@+id/tvCloudDetailsVal"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
         app:layout_constraintTop_toBottomOf="@+id/tvPressureDetailsLabel" />
 
     <TextView
@@ -240,11 +245,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Скорость ветра"
+        android:text="Скорость ветра:"
         style="@style/text_details"
+        android:paddingStart="8dp"
         app:layout_constraintEnd_toStartOf="@+id/tvWindSpeedDetailsVal"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
         app:layout_constraintTop_toBottomOf="@+id/tvCloudDetailsLabel" />
 
     <TextView
@@ -276,11 +282,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Восход"
+        android:text="Восход:"
+        android:paddingStart="8dp"
         style="@style/text_details"
         app:layout_constraintEnd_toStartOf="@+id/tvSunRiseDetailsVal"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
         app:layout_constraintTop_toBottomOf="@+id/tvWindSpeedDetailsLabel" />
 
     <TextView
@@ -288,11 +295,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="Закат"
+        android:text="Закат:"
+        android:paddingStart="8dp"
         style="@style/text_details"
         app:layout_constraintEnd_toStartOf="@+id/tvSunSetDetailsVal"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
+        app:layout_constraintStart_toEndOf="@+id/imgLabelDetails"
         app:layout_constraintTop_toBottomOf="@+id/tvSunRiseDetailsLabel" />
 
 

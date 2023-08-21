@@ -10,8 +10,10 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weather.R
 import com.example.weather.databinding.FragmentHomeBinding
+import com.example.weather.domain.utils.loadImage
 import com.example.weather.ui.home.adapter.HoursAdapter
 import com.example.weather.ui.home.converters.Condition
+import com.example.weather.ui.home.converters.IndexSun
 import com.example.weather.ui.home.converters.TimeConvertedUnix
 import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Description
@@ -95,6 +97,17 @@ class HomeFragment : Fragment() {
                     tvTimeHome.text = TimeConvertedUnix().time(tz)
                     tvDateHome.text = TimeConvertedUnix().converted(tz)
                 }
+
+                imgLabelDetails.loadImage("https://yastatic.net/weather/i/icons/funky/dark/${it.fact?.icon}.svg")
+                tvHumidityDetailsVal.text = getString(R.string.humidity_show, it.fact?.humidity)
+                tvUltravioletDetailsVal.text = "${it.fact?.uvIndex} - ${IndexSun().indexConverted(it.fact?.uvIndex)}"
+                tvTempDetailsVal.text = getString(R.string.hour_temp, it.fact?.temp)
+                tvTempFactDetailsVal.text = getString(R.string.hour_temp, it.fact?.feelsLike)
+                tvPressureDetailsVal.text = getString(R.string.hour_pres, it.fact?.pressureMm)
+                tvCloudDetailsVal.text = Condition().converted(it.fact?.condition)
+                tvWindSpeedDetailsVal.text = getString(R.string.speed_show, it.fact?.windSpeed)
+                tvSunRiseDetailsVal.text = it.forecasts?.get(0)?.sunrise.toString()
+                tvSunSetDetailsVal.text = it.forecasts?.get(0)?.sunset.toString()
             }
         }
 
