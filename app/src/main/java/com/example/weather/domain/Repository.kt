@@ -11,14 +11,13 @@ import com.example.weather.domain.utils.Constains.Companion.GEO_LON
 import javax.inject.Inject
 
 class Repository @Inject constructor(private val retrofit: SimpleRetrofit) {
-    suspend fun getWeather(): YandexModel{
-        return retrofit.getWeatherYandex(
-            GEO_LAT,
-            GEO_LON,
-            CONF_LANG,
-            CONF_LIMIT,
-            CONF_HOUR,
-            CONF_EXTRA
-        )
+    suspend fun getWeather(
+        lat: String,
+        long: String,
+        lang: String,
+        limit: String,
+        hour: String,
+        extra: String): YandexModel{
+        return retrofit.getWeatherYandex(lat, long, lang, limit, hour, extra)
     }
 }

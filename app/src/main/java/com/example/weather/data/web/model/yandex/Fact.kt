@@ -20,7 +20,7 @@ data class Fact(
 	val isThunder: Boolean? = null,
 
 	@field:SerializedName("uv_index")
-	val uvIndex: Int? = null,
+	val uvIndex: Double? = null,
 
 	@field:SerializedName("prec_type")
 	val precType: Int? = null,
@@ -35,7 +35,7 @@ data class Fact(
 	val season: String? = null,
 
 	@field:SerializedName("wind_speed")
-	val windSpeed: Int? = null,
+	val windSpeed: Double? = null,
 
 	@field:SerializedName("soil_temp")
 	val soilTemp: Int? = null,

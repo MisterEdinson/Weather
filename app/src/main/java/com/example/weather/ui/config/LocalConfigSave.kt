@@ -19,6 +19,10 @@ class LocalConfigSave @Inject constructor(context: Context?) {
         saveShare.saveGeo(geoKey, geo)
     }
 
+    fun read(key: String?):String?{
+        return saveShare.read(key)
+    }
+
     fun readGeo(latitude: String, longitude: String): Array<Double> {
         val mass: Array<Double> = arrayOf(-1.0, -1.0)
         val lat = saveShare.read(latitude)

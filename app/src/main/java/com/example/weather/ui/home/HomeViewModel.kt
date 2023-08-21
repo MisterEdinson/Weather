@@ -15,12 +15,16 @@ class HomeViewModel @Inject constructor(private val repo:Repository) : ViewModel
     val weatherLive: MutableLiveData<YandexModel> = MutableLiveData()
     var drawerLayoutState: MutableLiveData<Boolean> = MutableLiveData()
     init {
-        getWeather()
         drawerLayoutState.value = false
     }
-    fun getWeather(){
+    fun getWeather(lat: String,
+                   long: String,
+                   lang: String,
+                   limit: String,
+                   hour: String,
+                   extra: String){
         viewModelScope.launch {
-            val response = repo.getWeather()
+            val response = repo.getWeather(lat, long, lang, limit, hour, extra)
             weatherLive.value = response
         }
     }

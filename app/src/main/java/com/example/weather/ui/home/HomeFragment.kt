@@ -10,7 +10,9 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.weather.R
 import com.example.weather.databinding.FragmentHomeBinding
+import com.example.weather.domain.utils.Constains
 import com.example.weather.domain.utils.loadImage
+import com.example.weather.ui.config.LocalConfigSave
 import com.example.weather.ui.home.adapter.HoursAdapter
 import com.example.weather.ui.home.converters.Condition
 import com.example.weather.ui.home.converters.IndexSun
@@ -28,23 +30,30 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private val viewModel: HomeViewModel by activityViewModels()
     private var adapter: HoursAdapter? = null
+    private var localConfig: LocalConfigSave? = null
+
+    private var paramLat = Constains.GEO_LAT
+    private var paramLong = Constains.GEO_LON
+    private var paramLang = Constains.CONF_LANG
+    private var paramLimit = Constains.CONF_LIMIT
+    private var paramHour = Constains.CONF_HOUR
+    private var paramExtra = Constains.CONF_EXTRA
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(LayoutInflater.from(context), container, false)
+        localConfig = LocalConfigSave(this.context)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
+        configParamInit()
         viewModel.weatherLive.observe(viewLifecycleOwner) {
-            //val forecast = it.forecasts?.getJSONObject("forecast")
-            //adapter?.list?.submitList(forecast)
-
-            it.forecasts?.forEach{
+            it.forecasts?.forEach {
                 adapter?.list?.submitList(it?.hours)
             }
 
@@ -88,8 +97,9 @@ class HomeFragment : Fragment() {
 
                 mainBanner.apply {
                     tvActyalTemp.text = getString(R.string.temp_show, it.fact?.temp)
-                    tvVectorWind.text = getString(R.string.vector_show, it.fact?.windDir).uppercase()
-                    tvSpeedWind.text = getString(R.string.speed_show, it.fact?.windSpeed)
+                    tvVectorWind.text =
+                        getString(R.string.vector_show, it.fact?.windDir).uppercase()
+                    tvSpeedWind.text = getString(R.string.speed_show, it.fact?.windSpeed?.toInt())
                     tvHumidity.text = getString(R.string.humidity_show, it.fact?.humidity)
                     tvActyalWeather.text = Condition().converted(it.fact?.condition)
 
@@ -100,12 +110,13 @@ class HomeFragment : Fragment() {
 
                 imgLabelDetails.loadImage("https://yastatic.net/weather/i/icons/funky/dark/${it.fact?.icon}.svg")
                 tvHumidityDetailsVal.text = getString(R.string.humidity_show, it.fact?.humidity)
-                tvUltravioletDetailsVal.text = "${it.fact?.uvIndex} - ${IndexSun().indexConverted(it.fact?.uvIndex)}"
+                tvUltravioletDetailsVal.text =
+                    "${it.fact?.uvIndex} - ${IndexSun().indexConverted(it.fact?.uvIndex?.toInt())}"
                 tvTempDetailsVal.text = getString(R.string.hour_temp, it.fact?.temp)
                 tvTempFactDetailsVal.text = getString(R.string.hour_temp, it.fact?.feelsLike)
                 tvPressureDetailsVal.text = getString(R.string.hour_pres, it.fact?.pressureMm)
-                tvCloudDetailsVal.text = Condition().converted(it.fact?.condition)
-                tvWindSpeedDetailsVal.text = getString(R.string.speed_show, it.fact?.windSpeed)
+                tvCloudDetailsVal.text = it.fact?.condition.toString()
+                tvWindSpeedDetailsVal.text = getString(R.string.speed_show, it.fact?.windSpeed?.toInt())
                 tvSunRiseDetailsVal.text = it.forecasts?.get(0)?.sunrise.toString()
                 tvSunSetDetailsVal.text = it.forecasts?.get(0)?.sunset.toString()
             }
@@ -118,6 +129,18 @@ class HomeFragment : Fragment() {
         binding.imgBtnLocation.setOnClickListener {
             findNavController().navigate(R.id.nav_location)
         }
+    }
+
+    private fun configParamInit() {
+        if (localConfig?.defaultConfig() != false) {
+            paramLat = localConfig?.read("lat") ?: Constains.GEO_LAT
+            paramLong = localConfig?.read("long") ?: Constains.GEO_LON
+            paramLang = localConfig?.read("lang") ?: Constains.CONF_LANG
+            paramLimit = localConfig?.read("limit") ?: Constains.CONF_LIMIT
+            paramHour = localConfig?.read("hour") ?: Constains.CONF_HOUR
+            paramExtra = localConfig?.read("extra") ?: Constains.CONF_EXTRA
+        }
+        viewModel.getWeather(paramLat, paramLong, paramLang, paramLimit, paramHour, paramExtra)
     }
 
     private fun initAdapter() {
