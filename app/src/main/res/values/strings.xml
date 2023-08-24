@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">Weather</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="location_show">%s / %s</string>
+    <string name="temp_naught_day">%d\u00B0 / %d\u00B0</string>
+    <string name="temp_show">%d\u00B0С</string>
+    <string name="speed_show">%d м/с</string>
+    <string name="humidity_show">%d %%</string>
+    <string name="vector_show">%s</string>
+
 </resources>
