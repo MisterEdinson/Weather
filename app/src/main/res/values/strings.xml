@@ -9,5 +9,19 @@
     <string name="speed_show">%d м/с</string>
     <string name="humidity_show">%d %%</string>
     <string name="vector_show">%s</string>
+    <string name="save_config">Сохранить</string>
+    <string name="title_config">Настройка параметров:</string>
+    <string name="conf_temp">Температура</string>
+    <string name="conf_time">Формат времени</string>
+    <string name="conf_precipitation">Осадки</string>
+    <string name="conf_wind_speed">Скорость ветра</string>
+    <string name="conf_pressure">Давление</string>
+    <string name="conf_language">Язык приложения</string>
+    <string name="icon_language">icon language</string>
+    <string name="icon_pressure">icon pressure</string>
+    <string name="icon_speed_wind">icon speed wind</string>
+    <string name="icon_precipitation">icon precipitation</string>
+    <string name="icon_format_time">icon format time</string>
+    <string name="icon_tempetature">icon tempetature</string>
 
 </resources>
