@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
     <item
-        android:id="@+id/menuBtnLocation"
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Главная" />
+
+    <item
+        android:id="@+id/nav_location"
         android:icon="@drawable/ic_location"
         android:title="Местоположение" />
 
     <item
-        android:id="@+id/menuBtnConfig"
+        android:id="@+id/nav_config"
         android:icon="@drawable/ic_settings"
         android:title="Настройка" />
 
     <item
-        android:id="@+id/menuBtnShare"
+        android:id="@+id/nav_share"
         android:icon="@drawable/ic_share"
         android:title="Поделиться" />
 
     <item
-        android:id="@+id/menuBtnNotification"
-        android:checkable="true"
+        android:id="@+id/nav_notification"
         android:icon="@drawable/ic_notifications"
         android:title="Уведомления" />
 
     <item
-        android:id="@+id/menuBtnMail"
+        android:id="@+id/nav_mail"
         android:icon="@drawable/ic_email"
         android:title="Обратная связь" />
 
     <item
-        android:id="@+id/menuBtnUser"
+        android:id="@+id/nav_user"
         android:icon="@drawable/ic_sign"
         android:title="Регистрация" />
 
     <item
-        android:id="@+id/menuBtnInfo"
+        android:id="@+id/nav_info"
         android:icon="@drawable/ic_info"
         android:title="О приложении" />
 </menu>

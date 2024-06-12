@@ -13,8 +13,10 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val repo:Repository) : ViewModel() {
 
     val weatherLive: MutableLiveData<YandexModel> = MutableLiveData()
+    var drawerLayoutState: MutableLiveData<Boolean> = MutableLiveData()
     init {
         getWeather()
+        drawerLayoutState.value = false
     }
     fun getWeather(){
         viewModelScope.launch {

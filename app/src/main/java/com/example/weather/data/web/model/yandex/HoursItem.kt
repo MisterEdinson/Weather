@@ -17,10 +17,10 @@ data class HoursItem(
 	val pressureMm: Int? = null,
 
 	@field:SerializedName("cloudness")
-	val cloudness: Int? = null,
+	val cloudness: Float? = null,
 
 	@field:SerializedName("prec_period")
-	val precPeriod: Int? = null,
+	val precPeriod: Float? = null,
 
 	@field:SerializedName("wind_dir")
 	val windDir: String? = null,
@@ -53,7 +53,7 @@ data class HoursItem(
 	val humidity: Int? = null,
 
 	@field:SerializedName("prec_strength")
-	val precStrength: Int? = null,
+	val precStrength: Float? = null,
 
 	@field:SerializedName("wind_speed")
 	val windSpeed: Any? = null,
@@ -65,8 +65,8 @@ data class HoursItem(
 	val soilTemp: Int? = null,
 
 	@field:SerializedName("prec_mm")
-	val precMm: Int? = null,
+	val precMm: Float? = null,
 
 	@field:SerializedName("prec_prob")
-	val precProb: Int? = null
+	val precProb: Float? = null
 )
