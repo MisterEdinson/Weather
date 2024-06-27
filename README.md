@@ -1,1 +1,1 @@
-# Weather
+# Weather - app information
